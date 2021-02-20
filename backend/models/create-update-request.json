@@ -1,0 +1,23 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "flashCardUpdate",
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string"
+      },
+      "info": {
+        "type": "string"
+      },
+      "done": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+        "title",
+        "info",
+        "done"
+      ],
+    
+    "additionalProperties": false
+  }

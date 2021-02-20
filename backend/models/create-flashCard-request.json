@@ -1,0 +1,22 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "flashCard",
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "minLength": 5,
+        "maxLength": 20
+      },
+      "info": {
+        "type": "string",
+        "minLength": 5,
+        "maxLength": 455
+      }
+    },
+    "required": [
+        "title",
+        "info"
+      ],
+    "additionalProperties": false
+  }
