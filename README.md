@@ -1,11 +1,55 @@
 # FlashCard - Serverless App
-The goal of this project is to build and deploy a serverless application on AWS. In order to accomplish this task, I have choosen to build a "FlashCard" App with a React frontend and a Node.JS backend using a Serverless-Framework.
+The goal of this project is to build and deploy a serverless application on AWS. In order to accomplish this task, I have choosen to build a "FlashCard" App with a React frontend and a Node.JS backend using Serverless-Framework.
 
 ## CloudFormation Template to deploy:
 - API gateway
+  ![](resources/api-gateway-resources.png)
 - Lambda Functions with proper IAM permissions
-- 2 DynamoDB tables to store records of Users and Their FlashCard
+  ![](resources/lambda-functions.png)
+- DynamoDB table to store user info and FlashCards records
 - S3 bucket to store images uploaded by Users and linked with FlashCards
+  ![](resources/s3-bucket.png)
+
+## Project Specifications
+- [X] The project demonstrates an understanding of CI and Github.
+  - When branch master receives commits it will trigger a Travis pipeline deploy.
+- [X] The application is monitored by Amazon CloudWatch.
+  - Lambda Functions logs are been sent to CloudWatch.
+- [X] The application allows users to create, update, delete items.
+  - GetAll FlashCars, Get single FlashCard by id, Create FlashCard, Delete FlashCard, Update FlashCard.
+- [X] The application allows users to upload a file.
+  - `Generate UploadUrl` - it is used to add a picture to a FlashCard item.
+- [X] The application only displays items for a logged in user.
+- [X] Authentication is implemented and does not allow unauthenticated access.
+- [X] The code is split into multiple layers separating business logic from I/O related code.
+- [X] Code is implemented using async/await and Promises without using callbacks.
+- [X] All resources in the application are defined in the "serverless.yml" file
+- [X] Each function has its own set of permissions.
+- [X] Application has sufficient monitoring.
+  - Distributed tracing is enabled
+  - Log statements
+- [X] HTTP requests are validated
+  - `backend/models/create-flashCard-request.json`
+  - `backend/models/create-update-request.json`
+- [X] Data is stored in a table with a composite key.
+  ```yml
+      FlashCardsDynamoDBTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        AttributeDefinitions:
+          - AttributeName: userId
+            AttributeType: S
+          - AttributeName: flashCardId
+            AttributeType: S
+        KeySchema:
+          - AttributeName: userId
+            KeyType: HASH
+          - AttributeName: flashCardId
+            KeyType: RANGE
+        BillingMode: PAY_PER_REQUEST
+        TableName: ${self:provider.environment.FLASHCARDS_TABLE}
+  ```
+- [X] Scan operation is not used to read data from a database.
 
 
 ## Authentification system
