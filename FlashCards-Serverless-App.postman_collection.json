@@ -1,12 +1,12 @@
 {
 	"info": {
-		"_postman_id": "d0700d24-79ec-487e-8403-b565bef7f8e0",
-		"name": "FlashCard Serverless App",
+		"_postman_id": "7c2299b4-6261-40b7-ae01-b80af3440538",
+		"name": "FlashCards-Serverless-App",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "FlashCards",
+			"name": "FLASHCARDS",
 			"item": [
 				{
 					"name": "Get all FlashCards",
@@ -19,23 +19,51 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
-							"raw": "https://{{apiId}}.execute-api.us-east-1.amazonaws.com/dev/flashcards",
+							"raw": "https://{{apiId}}.execute-api.sa-east-1.amazonaws.com/dev/flashcards",
 							"protocol": "https",
 							"host": [
 								"{{apiId}}",
 								"execute-api",
-								"us-east-1",
+								"sa-east-1",
 								"amazonaws",
 								"com"
 							],
 							"path": [
 								"dev",
 								"flashcards"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get FlashCard",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{apiId}}.execute-api.sa-east-1.amazonaws.com/dev/users/{userId}/flashcard/{questionId}",
+							"protocol": "https",
+							"host": [
+								"{{apiId}}",
+								"execute-api",
+								"sa-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"users",
+								"{userId}",
+								"flashcard",
+								"{questionId}"
 							]
 						}
 					},
@@ -60,15 +88,15 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\": \"Water flowers\",\n\t\"dueDate\": \"2019-06-11\"\n}"
+							"raw": "{\n\t\"title\": \"Nice Word\",\n\t\"info\": \"Affordable\"\n}"
 						},
 						"url": {
-							"raw": "https://{{apiId}}.execute-api.us-east-1.amazonaws.com/dev/flashcards",
+							"raw": "https://{{apiId}}.execute-api.sa-east-1.amazonaws.com/dev/flashcards",
 							"protocol": "https",
 							"host": [
 								"{{apiId}}",
 								"execute-api",
-								"us-east-1",
+								"sa-east-1",
 								"amazonaws",
 								"com"
 							],
@@ -83,7 +111,7 @@
 				{
 					"name": "Update FlashCard",
 					"request": {
-						"method": "PUT",
+						"method": "PATCH",
 						"header": [
 							{
 								"key": "Content-Type",
@@ -99,22 +127,22 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\": \"Change the world\",\n\t\"dueDate\": \"2019-12-11\",\n\t\"done\": true\n}"
+							"raw": "{\n    \"title\": \"Vocabulary\",\n    \"info\": \"Affordable\",\n    \"done\": false\n}"
 						},
 						"url": {
-							"raw": "https://{{apiId}}.execute-api.us-east-1.amazonaws.com/dev/flashcards/35dd600f-43c2-4649-903c-615e1586a26f",
+							"raw": "https://{{apiId}}.execute-api.sa-east-1.amazonaws.com/dev/flashcards/99e708da-3d6d-4057-b79a-ac9e3556e08f",
 							"protocol": "https",
 							"host": [
 								"{{apiId}}",
 								"execute-api",
-								"us-east-1",
+								"sa-east-1",
 								"amazonaws",
 								"com"
 							],
 							"path": [
 								"dev",
 								"flashcards",
-								"35dd600f-43c2-4649-903c-615e1586a26f"
+								"99e708da-3d6d-4057-b79a-ac9e3556e08f"
 							]
 						}
 					},
@@ -142,19 +170,19 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://{{apiId}}.execute-api.us-east-1.amazonaws.com/dev/flashcards/fe671583-4512-45f6-9475-4265c04362fb",
+							"raw": "https://{{apiId}}.execute-api.sa-east-1.amazonaws.com/dev/flashcards/67c772fb-af78-4348-955f-e2f78d8fb77c",
 							"protocol": "https",
 							"host": [
 								"{{apiId}}",
 								"execute-api",
-								"us-east-1",
+								"sa-east-1",
 								"amazonaws",
 								"com"
 							],
 							"path": [
 								"dev",
 								"flashcards",
-								"fe671583-4512-45f6-9475-4265c04362fb"
+								"67c772fb-af78-4348-955f-e2f78d8fb77c"
 							]
 						}
 					},
@@ -176,19 +204,19 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://{{apiId}}.execute-api.us-east-1.amazonaws.com/dev/flashcards/3836b777-9bc4-4429-9b79-ba4e4f5f91c0/attachment",
+							"raw": "https://{{apiId}}.execute-api.sa-east-1.amazonaws.com/dev/flashcards/99e708da-3d6d-4057-b79a-ac9e3556e08f/attachment",
 							"protocol": "https",
 							"host": [
 								"{{apiId}}",
 								"execute-api",
-								"us-east-1",
+								"sa-east-1",
 								"amazonaws",
 								"com"
 							],
 							"path": [
 								"dev",
 								"flashcards",
-								"3836b777-9bc4-4429-9b79-ba4e4f5f91c0",
+								"99e708da-3d6d-4057-b79a-ac9e3556e08f",
 								"attachment"
 							]
 						}
@@ -200,7 +228,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "ce2b42d4-8cc5-4f30-a6ed-e7f0f303c3fd",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -210,7 +237,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "efb16c49-3866-4241-97d1-360ad72736d8",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -224,7 +250,6 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "2e83c0fe-6650-44d5-a90f-4c27ff720d83",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -234,7 +259,6 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "977c227e-2df3-42eb-9a48-ec25e2f7eeae",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -244,16 +268,12 @@
 	],
 	"variable": [
 		{
-			"id": "bf208e6b-f66d-4008-9366-dd541ff65425",
 			"key": "apiId",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "9bc6399a-d2bb-4f2d-9ffa-8480370d383c",
 			"key": "authToken",
-			"value": "",
-			"type": "string"
+			"value": ""
 		}
 	]
 }

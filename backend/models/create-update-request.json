@@ -15,8 +15,7 @@
     },
     "required": [
         "title",
-        "info",
-        "done"
+        "info"
       ],
     
     "additionalProperties": false
