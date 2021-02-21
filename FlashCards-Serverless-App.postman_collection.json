@@ -1,0 +1,279 @@
+{
+	"info": {
+		"_postman_id": "7c2299b4-6261-40b7-ae01-b80af3440538",
+		"name": "FlashCards-Serverless-App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "FLASHCARDS",
+			"item": [
+				{
+					"name": "Get all FlashCards",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{apiId}}.execute-api.sa-east-1.amazonaws.com/dev/flashcards",
+							"protocol": "https",
+							"host": [
+								"{{apiId}}",
+								"execute-api",
+								"sa-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"flashcards"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get FlashCard",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{apiId}}.execute-api.sa-east-1.amazonaws.com/dev/users/{userId}/flashcard/{questionId}",
+							"protocol": "https",
+							"host": [
+								"{{apiId}}",
+								"execute-api",
+								"sa-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"users",
+								"{userId}",
+								"flashcard",
+								"{questionId}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create FlashCard",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Nice Word\",\n\t\"info\": \"Affordable\"\n}"
+						},
+						"url": {
+							"raw": "https://{{apiId}}.execute-api.sa-east-1.amazonaws.com/dev/flashcards",
+							"protocol": "https",
+							"host": [
+								"{{apiId}}",
+								"execute-api",
+								"sa-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"flashcards"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update FlashCard",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Vocabulary\",\n    \"info\": \"Affordable\",\n    \"done\": false\n}"
+						},
+						"url": {
+							"raw": "https://{{apiId}}.execute-api.sa-east-1.amazonaws.com/dev/flashcards/99e708da-3d6d-4057-b79a-ac9e3556e08f",
+							"protocol": "https",
+							"host": [
+								"{{apiId}}",
+								"execute-api",
+								"sa-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"flashcards",
+								"99e708da-3d6d-4057-b79a-ac9e3556e08f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete FlashCard",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{apiId}}.execute-api.sa-east-1.amazonaws.com/dev/flashcards/67c772fb-af78-4348-955f-e2f78d8fb77c",
+							"protocol": "https",
+							"host": [
+								"{{apiId}}",
+								"execute-api",
+								"sa-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"flashcards",
+								"67c772fb-af78-4348-955f-e2f78d8fb77c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get attachment URL",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{apiId}}.execute-api.sa-east-1.amazonaws.com/dev/flashcards/99e708da-3d6d-4057-b79a-ac9e3556e08f/attachment",
+							"protocol": "https",
+							"host": [
+								"{{apiId}}",
+								"execute-api",
+								"sa-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"flashcards",
+								"99e708da-3d6d-4057-b79a-ac9e3556e08f",
+								"attachment"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "apiId",
+			"value": ""
+		},
+		{
+			"key": "authToken",
+			"value": ""
+		}
+	]
+}
