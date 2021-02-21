@@ -6,7 +6,6 @@ plugins:
   - serverless-iam-roles-per-function
   - serverless-plugin-tracing
 
-
 provider:
   tracing:
     lambda: true
@@ -58,7 +57,7 @@ functions:
     events:
       - http:
           method: get
-          path: flashCards/{flashCardId}
+          path: flashcards/{flashCardId}
           cors: true
     iamRoleStatements:
       - Effect: Allow
@@ -66,13 +65,12 @@ functions:
           - dynamodb:Query
         Resource: arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.FLASHCARDS_TABLE}
 
-
   CreateFlashCard:
     handler: src/lambda/http/createFlashCard.handler
     events:
       - http:
           method: post
-          path: flashCards
+          path: flashcards
           cors: true
           authorizer: Auth
           request:
@@ -89,7 +87,7 @@ functions:
     events:
       - http:
           method: patch
-          path: flashCards/{flashCardId}
+          path: flashcards/{flashCardId}
           cors: true
           authorizer: Auth
           request:
@@ -102,13 +100,12 @@ functions:
           - dynamodb:Query
         Resource: arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.FLASHCARDS_TABLE}
 
-  
   DeleteFlashCard:
     handler: src/lambda/http/deleteFlashCard.handler
     events:
       - http:
           method: delete
-          path: flashCards/{flashCardId}
+          path: flashcards/{flashCardId}
           cors: true
           authorizer: Auth
     iamRoleStatements:
@@ -123,7 +120,7 @@ functions:
     events:
       - http:
           method: post
-          path: flashCards/{flashCardId}/attachment
+          path: flashcards/{flashCardId}/attachment
           cors: true
           authorizer: Auth
     iamRoleStatements:

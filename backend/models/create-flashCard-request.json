@@ -10,7 +10,7 @@
       },
       "info": {
         "type": "string",
-        "minLength": 5,
+        "minLength": 0,
         "maxLength": 455
       }
     },
