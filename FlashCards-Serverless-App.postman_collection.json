@@ -49,7 +49,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://{{apiId}}.execute-api.sa-east-1.amazonaws.com/dev/users/{userId}/flashcard/{questionId}",
+							"raw": "https://{{apiId}}.execute-api.sa-east-1.amazonaws.com/dev/flashcards/9125b4c2-fcb6-4175-96af-f8ff9f6a4c0e",
 							"protocol": "https",
 							"host": [
 								"{{apiId}}",
@@ -60,10 +60,8 @@
 							],
 							"path": [
 								"dev",
-								"users",
-								"{userId}",
-								"flashcard",
-								"{questionId}"
+								"flashcards",
+								"9125b4c2-fcb6-4175-96af-f8ff9f6a4c0e"
 							]
 						}
 					},
