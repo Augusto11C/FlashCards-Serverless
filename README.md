@@ -1,6 +1,8 @@
 # FlashCard - Serverless App
 The goal of this project is to build and deploy a serverless application on AWS. In order to accomplish this task, I have choosen to build a "FlashCard" App with a React frontend and a Node.JS backend using Serverless-Framework.
 
+## Functionality of the application
+This application was built with the objective of helping students in their studies, enabling them to register and store useful information in flashcard format. In addition, a feature was introduced making possible to attach images to cards.
 ## CloudFormation Template to deploy:
 - API gateway
   ![](resources/api-gateway-resources.png)
@@ -55,9 +57,6 @@ The goal of this project is to build and deploy a serverless application on AWS.
 ## Authentification system
 This project is also using a fully secured Authentification system through Auth0.
 
-## Functionality of the application
-This application was built with the objective of helping students in their studies, enabling them to register and store useful information in flashcard format. In addition, a feature was introduced making possible to attach images to cards.
-
 ## How to Connect Local Front-end with the backend server already deployed in AWS
 A version of this website is already running on []. To run this application locally follow these instructions:
 
@@ -76,6 +75,10 @@ npm install
 npm run start
 The frontend will be running on http://localhost:3000/
 ```
+
+### Prints Frontend
+![](resources/front-end-login.png)
+![](resources/front-front-end-logged-user.png)
 
 ## About the DB structure
 ### Database tables
@@ -120,7 +123,14 @@ The application store FLASHCARD items, and each FLASHCARD item contains the foll
   The pre-signed URL is used to upload an attachment file to a s3 bucket for a FlashCard item. It then updates the FlashCard item with an attachmentUrl key that has the URL of s3 bucket of the uploaded image {attachmentUrl: "https://${bucketName}.s3.amazonaws.com/${flashCardId}"}
 
 ## Test
-To test the endpoints of this application download the postman collection: FlashCards-Serverless-App.postman_collection.json
+To test use the simple react frontend provided, or the endpoints of this application download the postman collection: FlashCards-Serverless-App.postman_collection.json
+
+PS: In order to use de postman collection only, you need to get the token provided by Auth0. In order to do that, log with your account using the frontend and then get the token using the Browser inspection tool.
+
+![](resources/inspection-tool-get-token.png)
+
+after that, past the token in the variable `authToken` in the variable section of the postman collection provided in the project
+![](resources/variable-section-postman.png)
 
 ## CI/CD pipeline
 Travis was used to automically deploy and update the application. Each time a new commit is pushed to the master branch, a new build is triggered. A commit pushed to the development branch won't trigger a new deployment, which allows to integrate changes without affecting the production environment.
